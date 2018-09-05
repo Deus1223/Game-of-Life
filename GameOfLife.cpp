@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <unistd.h>
 
 using namespace std;
 
@@ -267,10 +268,6 @@ void GameOfLife::proceed( int times)
 
     for(k=1; k<=times; k++)
     {
-/*  there is some problem
-    copy(&cell[0][0], &cell[height][width], &tmp[0][0]);   // copy cell to tmp
-    memcpy(&tmp[0][0], &cell[0][0], height*width*sizeof(bool));   // copy cell to tmp
-*/
         for(i=0; i<height; i++)
         {
             for(j=0; j<width; j++)
@@ -328,7 +325,7 @@ void GameOfLife::proceed( int times)
 
         display();
         cout<< "generation:"<< k<<endl;
-//        usleep(1000);
+        usleep(100000);
     }
 }
 
